@@ -1,5 +1,7 @@
 # Receipt Helper - 本地智能票据整理助手
 
+![Demo](doc/demo.gif)
+
 基于 OpenVINO 的本地票据 OCR 识别与智能分类工具。所有推理在本地完成，无需云端 API，保障财务隐私安全。
 
 ## 功能特性

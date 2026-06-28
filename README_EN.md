@@ -1,5 +1,7 @@
 # Receipt Helper
 
+![Demo](doc/demo.gif)
+
 Local receipt OCR and intelligent classification tool powered by OpenVINO. All inference runs locally without cloud APIs, ensuring financial privacy.
 
 ## Features
