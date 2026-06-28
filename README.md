@@ -55,11 +55,33 @@ python scripts/manage_rules.py history --limit 10
 | `RECEIPT_LLM_MODEL_ID` | LLM 模型 ID | `Qwen/Qwen2.5-7B-Instruct` |
 | `RECEIPT_DATA_DIR` | 数据存储目录（规则+历史） | `./data` |
 
+## 测试图片
+
+`test_images/` 目录包含测试用的票据图片：
+
+| 文件名 | 说明 |
+|--------|------|
+| `01_1.png` | 测试图片 1 |
+| `texi.jpg` | 出租车发票 |
+| `texi2.jpg` | 出租车发票 2 |
+| `trip_02.jpg` | 差旅票据 |
+
+快速测试 OCR：
+
+```bash
+python scripts/openvino_ocr.py --input test_images/
+```
+
 ## 项目结构
 
 ```
 receipt_helper/
 ├── SKILL.md                              # OpenVINO Skill 定义
+├── test_images/                          # 测试图片
+│   ├── 01_1.png
+│   ├── texi.jpg
+│   ├── texi2.jpg
+│   └── trip_02.jpg
 ├── data/
 │   └── classification_rules.json         # 分类规则
 └── scripts/

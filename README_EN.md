@@ -55,11 +55,33 @@ python scripts/manage_rules.py history --limit 10
 | `RECEIPT_LLM_MODEL_ID` | LLM model ID | `Qwen/Qwen2.5-7B-Instruct` |
 | `RECEIPT_DATA_DIR` | Data storage directory (rules + history) | `./data` |
 
+## Test Images
+
+The `test_images/` directory contains sample receipt images for testing:
+
+| Filename | Description |
+|----------|-------------|
+| `01_1.png` | Sample image 1 |
+| `texi.jpg` | Taxi receipt |
+| `texi2.jpg` | Taxi receipt 2 |
+| `trip_02.jpg` | Travel receipt |
+
+Quick OCR test:
+
+```bash
+python scripts/openvino_ocr.py --input test_images/
+```
+
 ## Project Structure
 
 ```
 receipt_helper/
 ├── SKILL.md                              # OpenVINO Skill definition
+├── test_images/                          # Test images
+│   ├── 01_1.png
+│   ├── texi.jpg
+│   ├── texi2.jpg
+│   └── trip_02.jpg
 ├── data/
 │   └── classification_rules.json         # Classification rules
 └── scripts/
