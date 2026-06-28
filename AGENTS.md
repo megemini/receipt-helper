@@ -5,7 +5,7 @@
 Local receipt OCR + classification skill using OpenVINO. Three Python scripts, no tests, no CI, no build system.
 
 - `scripts/openvino_ocr.py` — OCR extraction from receipt images (OpenVINO + PaddleOCR-VL)
-- `scripts/receipt_llm.py` — LLM-based classification/analysis of OCR results (OpenVINO + Qwen2.5-7B)
+- `scripts/receipt_llm.py` — LLM-based classification/analysis of OCR results (OpenVINO + Qwen3.5-35B-A3B)
 - `scripts/manage_rules.py` — CLI tool for classification rules and history
 
 ## Key Commands
@@ -31,7 +31,7 @@ python scripts/manage_rules.py history --limit 10
 - All推理 runs locally via OpenVINO (CPU/GPU/NPU). No cloud APIs.
 - `openvino_ocr.py` depends on `ov_paddleocr_vl` module from a sibling `openvino_notebooks/` repo (see `PADDLEOCR_VL_DIR` env var, defaults to `../../openvino_notebooks/notebooks/paddleocr_vl`).
 - OCR model auto-downloads from ModelScope (`megemini/PaddleOCR-VL-1.5-OpenVINO`) if local path invalid.
-- LLM model defaults to `Qwen/Qwen2.5-7B-Instruct`, configurable via `RECEIPT_LLM_MODEL_ID` env var.
+- LLM model defaults to `Qwen/Qwen3.5-35B-A3B` (35B MoE, 3B active), configurable via `RECEIPT_LLM_MODEL_ID` env var.
 - Classification rules live in `data/classification_rules.json`, history in `data/history.jsonl`.
 
 ## Gotchas

@@ -5,7 +5,7 @@ Local receipt OCR and intelligent classification tool powered by OpenVINO. All i
 ## Features
 
 - **Local OCR**: Extract structured text from receipt images using OpenVINO + PaddleOCR-VL
-- **Intelligent Classification**: Classify, summarize, and organize receipts using a local small LLM (<35B)
+- **Intelligent Classification**: Classify, summarize, and organize receipts using a local LLM (Qwen3.5-35B-A3B)
 - **Custom Rules**: Define custom classification categories and keywords
 - **History**: Auto-save processing history with search support
 - **Heterogeneous Compute**: Support CPU / GPU / NPU inference
@@ -52,7 +52,7 @@ python scripts/manage_rules.py history --limit 10
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `PADDLEOCR_VL_DIR` | PaddleOCR-VL OpenVINO model directory | `../../openvino_notebooks/notebooks/paddleocr_vl` |
-| `RECEIPT_LLM_MODEL_ID` | LLM model ID | `Qwen/Qwen2.5-7B-Instruct` |
+| `RECEIPT_LLM_MODEL_ID` | LLM model ID | `Qwen/Qwen3.5-35B-A3B` |
 | `RECEIPT_DATA_DIR` | Data storage directory (rules + history) | `./data` |
 
 ## Test Images

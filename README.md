@@ -5,7 +5,7 @@
 ## 功能特性
 
 - **本地 OCR 识别**：基于 OpenVINO + PaddleOCR-VL，从票据图片中提取结构化文本
-- **智能分类整理**：基于本地小型 LLM（<35B），根据用户指令自动分类、统计、归档
+- **智能分类整理**：基于本地 LLM（Qwen3.5-35B-A3B），根据用户指令自动分类、统计、归档
 - **自定义分类规则**：支持用户自定义分类类别和关键词
 - **历史记录**：自动保存整理历史，支持检索查询
 - **异构算力**：支持 CPU / GPU / NPU 推理设备
@@ -52,7 +52,7 @@ python scripts/manage_rules.py history --limit 10
 | 变量名 | 说明 | 默认值 |
 |--------|------|--------|
 | `PADDLEOCR_VL_DIR` | PaddleOCR-VL OpenVINO 模型目录 | `../../openvino_notebooks/notebooks/paddleocr_vl` |
-| `RECEIPT_LLM_MODEL_ID` | LLM 模型 ID | `Qwen/Qwen2.5-7B-Instruct` |
+| `RECEIPT_LLM_MODEL_ID` | LLM 模型 ID | `Qwen/Qwen3.5-35B-A3B` |
 | `RECEIPT_DATA_DIR` | 数据存储目录（规则+历史） | `./data` |
 
 ## 测试图片

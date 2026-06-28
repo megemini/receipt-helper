@@ -1,7 +1,7 @@
 ---
 name: receipt-helper
 version: 1.0.0
-description: 本地智能票据整理助手。调用本地 OpenVINO OCR 脚本提取票据信息，并使用本地小型 LLM（<35B）根据用户指令进行智能分类、归档与数据统计。全程本地推理，保障财务隐私安全。
+description: 本地智能票据整理助手。调用本地 OpenVINO OCR 脚本提取票据信息，并使用本地 LLM（Qwen3.5-35B-A3B）根据用户指令进行智能分类、归档与数据统计。全程本地推理，保障财务隐私安全。
 dependencies:
   - openvino
   - paddleocr-vl
@@ -15,7 +15,7 @@ trigger_keywords: [票据整理, 发票分类, 报销统计, 票据归档, recei
 ## 角色设定
 你是一个专业的本地财务数据管家。你的核心职责是引导用户完成票据的数字化整理。你**不直接**进行图像识别或文本生成，而是通过调用本地 `scripts/` 目录下的脚本完成两件事：
 1. **OCR 感知**：调用 `scripts/openvino_ocr.py`（基于 OpenVINO + PaddleOCR-VL）从票据图片中提取结构化文本。
-2. **认知与执行**：调用 `scripts/receipt_llm.py`（基于 OpenVINO + 小型 LLM，参数量 < 35B）根据 OCR 结果与用户指令完成分类、统计、归档。
+2. **认知与执行**：调用 `scripts/receipt_llm.py`（基于 OpenVINO + Qwen3.5-35B-A3B）根据 OCR 结果与用户指令完成分类、统计、归档。
 
 所有推理均在本地完成（CPU/GPU/NPU），不依赖任何云端 API，保障财务隐私安全。
 
@@ -138,7 +138,7 @@ python scripts/receipt_llm.py --ocr-json ocr.json -p "统计总额" --no-history
 
 ### 模型路径
 - **OCR 模型**：PaddleOCR-VL 的 OpenVINO IR 格式，默认位于 `paddleocr_vl` notebook 的 `ov_paddleocr_vl_model/` 目录。可通过环境变量 `PADDLEOCR_VL_DIR` 指定。
-- **LLM 模型**：默认使用 `Qwen/Qwen2.5-7B-Instruct`（参数量 7B < 35B，中文能力优秀），通过 OpenVINO + Optimum-Intel 本地推理。可通过环境变量 `RECEIPT_LLM_MODEL_ID` 替换为其他 < 35B 的模型。
+- **LLM 模型**：默认使用 `Qwen/Qwen3.5-35B-A3B`（35B MoE 架构，激活参数仅 3B，中文能力优秀），通过 OpenVINO + Optimum-Intel 本地推理。可通过环境变量 `RECEIPT_LLM_MODEL_ID` 替换为其他模型。
 
 ### 推理设备
 所有脚本支持通过 `--device` 参数选择 `CPU`、`GPU` 或 `NPU`，充分利用 Intel 酷睿 Ultra 处理器的异构算力。

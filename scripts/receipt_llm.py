@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-票据整理与分析 LLM 脚本 - 基于小型 OpenVINO LLM (参数量 < 35B)
+票据整理与分析 LLM 脚本 - 基于 OpenVINO LLM
 
 职责：接收 OCR JSON 数据 + 用户自然语言指令 -> 本地 LLM 推理 -> 输出整理/统计结果
 
-默认模型: Qwen/Qwen2.5-7B-Instruct (7B < 35B，中文能力优秀)
-可通过环境变量 RECEIPT_LLM_MODEL_ID 替换为其他 < 35B 的模型，例如:
+默认模型: Qwen/Qwen3.5-35B-A3B (35B MoE，激活参数 3B，中文能力优秀)
+可通过环境变量 RECEIPT_LLM_MODEL_ID 替换为其他模型，例如:
   - Qwen/Qwen2.5-14B-Instruct
   - meta-llama/Llama-3.1-8B-Instruct
 
@@ -20,10 +20,10 @@ import os
 import sys
 from pathlib import Path
 
-# 默认 LLM 模型 ID（7B 参数，< 35B 限制）
+# 默认 LLM 模型 ID（35B MoE，激活参数 3B）
 DEFAULT_LLM_MODEL_ID = os.environ.get(
     "RECEIPT_LLM_MODEL_ID",
-    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen3.5-35B-A3B",
 )
 
 # 数据存储目录（分类规则 + 历史记录）
@@ -198,7 +198,7 @@ def read_ocr_json(ocr_json_arg):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="票据整理与分析 LLM 脚本 (OpenVINO 小型 LLM, <35B)",
+        description="票据整理与分析 LLM 脚本 (OpenVINO LLM)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="示例:\n"
         "  python receipt_llm.py --ocr-json ocr.json --instruction '按日期分类'\n"
