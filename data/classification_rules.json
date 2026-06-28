@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "default_category": "待确认",
+  "rules": [
+    {
+      "category": "餐饮",
+      "keywords": ["餐", "食", "饭店", "外卖", "咖啡", "茶饮", "饮料", "小吃", "酒楼", "食堂"],
+      "description": "餐饮消费"
+    },
+    {
+      "category": "交通",
+      "keywords": ["打车", "出租", "地铁", "公交", "加油", "停车", "高铁", "机票", "车票", "滴滴", "出行"],
+      "description": "交通出行"
+    },
+    {
+      "category": "办公用品",
+      "keywords": ["文具", "打印", "办公", "纸张", "耗材", "复印"],
+      "description": "办公用品采购"
+    },
+    {
+      "category": "住宿",
+      "keywords": ["住宿", "宾馆", "民宿", "旅馆", "客栈", "房费"],
+      "description": "差旅住宿"
+    },
+    {
+      "category": "通讯",
+      "keywords": ["话费", "流量", "通讯", "电信", "移动", "联通", "宽带"],
+      "description": "通讯费用"
+    },
+    {
+      "category": "差旅",
+      "keywords": ["差旅", "出差", "报销", "补贴"],
+      "description": "差旅费用"
+    },
+    {
+      "category": "医疗",
+      "keywords": ["医院", "药店", "医药", "门诊", "挂号", "体检"],
+      "description": "医疗健康"
+    },
+    {
+      "category": "娱乐",
+      "keywords": ["电影", "游戏", "娱乐", "健身", "运动", "KTV"],
+      "description": "娱乐休闲"
+    }
+  ]
+}

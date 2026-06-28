@@ -1,0 +1,18 @@
+# 票据整理助手依赖
+# OpenVINO 推理框架
+openvino>=2024.0
+nncf>=2.9.0
+
+# PaddleOCR-VL 模型依赖
+torch>=2.1
+torchvision
+transformers>=4.40
+pillow
+
+# 模型自动下载 (ModelScope)
+modelscope>=1.18
+
+# 小型 LLM 推理 (Optimum-Intel 提供模型转 OpenVINO 与推理)
+optimum-intel>=1.18
+optimum>=1.18
+accelerate>=0.30
